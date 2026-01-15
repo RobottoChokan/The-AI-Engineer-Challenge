@@ -19,7 +19,19 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+openai_client = None
+
+def get_openai_client() -> OpenAI:
+    """Create (or reuse) an OpenAI client when a key is available."""
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        raise HTTPException(status_code=500, detail="OPENAI_API_KEY not configured")
+
+    global openai_client
+    if openai_client is None or openai_client.api_key != api_key:
+        openai_client = OpenAI(api_key=api_key)
+
+    return openai_client
 
 FORTUNES = [
     "The moon waits; your patience turns tide into triumph.",
@@ -267,12 +279,9 @@ def fortune():
 
 @app.post("/api/chat")
 def chat(request: ChatRequest):
-    if not os.getenv("OPENAI_API_KEY"):
-        raise HTTPException(status_code=500, detail="OPENAI_API_KEY not configured")
-    
     try:
         user_message = request.message
-        response = client.chat.completions.create(
+        response = get_openai_client().chat.completions.create(
             model="gpt-5",
             messages=[
                 {"role": "system", "content": "You are a supportive mental coach."},
