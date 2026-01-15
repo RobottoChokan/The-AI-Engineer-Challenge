@@ -68,10 +68,21 @@ lsof -ti:8000 | xargs kill -9
 
 The chat endpoint uses OpenAI's GPT-5 model with a supportive mental coach system prompt to provide helpful responses.
 
-### Root Endpoint
+### Fortune UI
 - **URL**: `/`
 - **Method**: GET
-- **Response**: `{"status": "ok"}`
+- **Response**: HTML page with a dark oriental themed fortune cookie experience
+
+### Fortune JSON
+- **URL**: `/api/fortune`
+- **Method**: GET
+- **Response**: JSON with a fortune and lucky numbers
+```json
+{
+  "fortune": "string",
+  "lucky_numbers": [4, 18, 23, 42, 58, 77]
+}
+```
 
 ### Health Check
 - **URL**: `/api/health`
