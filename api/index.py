@@ -34,18 +34,18 @@ def get_openai_client() -> OpenAI:
     return openai_client
 
 FORTUNES = [
-    "The moon waits; your patience turns tide into triumph.",
-    "A quiet choice tonight becomes a loud win tomorrow.",
-    "Your craft deepens when you finish what you begin.",
-    "A warm cup and a bold plan will clear the path ahead.",
-    "The lantern is dim, but your way is already known.",
-    "A small kindness opens a large gate.",
-    "Storms polish stones; so does challenge polish you.",
-    "Your next message will carry unexpected luck.",
-    "Follow the ink trail; the right answer is nearby.",
-    "The dragon sleeps; your calm keeps it at peace.",
-    "A new friend arrives when you least expect.",
-    "Honor the silence, then speak with certainty.",
+    "Sure, here's a fortune: maybe you'll find matching socks tomorrow. Try not to faint.",
+    "Great news: nothing terrible is guaranteed today. You're welcome.",
+    "A bold plan could work, but let's not get ahead of ourselves.",
+    "You might succeed if you stop doing that thing you're definitely about to do.",
+    "Luck is circling you, mostly out of curiosity.",
+    "The universe has a plan. It forgot to tell me the part where you benefit.",
+    "A small win is coming. Don't spend it all in one place.",
+    "Your patience will pay off. Eventually. Not saying when.",
+    "A surprising opportunity appears. You'll probably ignore it out of principle.",
+    "Someone will praise you soon. It won't fix anything, but there it is.",
+    "Today brings clarity. Unfortunately, it's about your bad decisions.",
+    "You will find what you seek. It will be underwhelming.",
 ]
 
 FORTUNE_HTML = """\
